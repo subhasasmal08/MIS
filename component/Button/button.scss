@@ -1,0 +1,53 @@
+@use "sass:math";
+$desk: math.div(100, 1920);
+.btn_ {
+  font-family: var(--inter);
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid #e9ebeb;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 120%;
+  z-index: 1;
+  transition: 0.5s;
+  cursor: pointer;
+  padding: 9px 50px;
+  background-color: #3a62ff;
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  text-transform: capitalize;
+  @media (max-width: 1200px) {
+    // font-size: 10 * $desk + vw;
+  }
+  span {
+    // color: #949494;
+  }
+  svg {
+    // width: 12px;
+    // height: 12px;
+    margin-right: 9px;
+    path {
+      // fill: #fff;
+    }
+  }
+  &:active {
+    animation: press 0.2s 1 linear;
+  }
+  &:disabled {
+    animation: none;
+    cursor: not-allowed;
+    background-color: #bfbfbf !important;
+    svg {
+      opacity: 0.35;
+      path {
+        fill: #545454;
+      }
+    }
+    span {
+      color: #545454;
+      //   opacity: 0.35;
+    }
+  }
+}
