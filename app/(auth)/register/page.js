@@ -17,11 +17,14 @@ export default function page() {
   });
   const postData = () => {
     let flag = [];
-    if (loginCred.email === "") {
+    if (loginCred.name === "") {
       flag.push("email");
     }
-    if (loginCred.password === "") {
+    if (loginCred.email === "") {
       flag.push("password");
+    }
+    if (loginCred.password === "") {
+      flag.push("name");
     }
     if (flag.length > 0) {
       console.log(flag);
@@ -41,12 +44,12 @@ export default function page() {
           <Image className="image_" src={signup} />
         </div>
         <div className="page_rhs">
-          <h2 className="create_tag">create your account</h2>
+          <h2 className="create_tag">Create your account</h2>
           <div className="input_feilds">
           <InputBox
               id="name"
               placeholder="Enter your name here"
-              header="name"
+              header="Name"
               value={loginCred.name}
               onChange={(e) => {
                 let _loginCred = { ...loginCred };
@@ -96,14 +99,14 @@ export default function page() {
             />
           </div>
           <Button
-            name="Login"
+            name="Sign up"
             bg="#3A62FF"
             onClick={() => {
               postData();
             }}
           />
           <p className="sign_up_tag">
-            Don't have an account{" "}
+            Already have an account{" "}
             <span
               style={{
                 color: "#3A62FF",
@@ -112,10 +115,10 @@ export default function page() {
                 textDecoration: "underline",
               }}
               onClick={() => {
-                router.push("./register");
+                router.push("./login");
               }}
             >
-              Sign up
+              Sign in
             </span>
           </p>
         </div>
